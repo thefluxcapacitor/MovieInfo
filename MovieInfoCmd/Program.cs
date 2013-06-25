@@ -30,7 +30,7 @@
                 }
 
                 var client = new HttpClient();
-                client.DefaultRequestHeaders.Add("Accept-Language", "en-US,es-419;q=0.8,es;q=0.6");
+                client.DefaultRequestHeaders.Add("Accept-Language", "en-US,en");
 
                 var imdbId = FindOnImdb(client, video);
 
