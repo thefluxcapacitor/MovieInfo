@@ -1,4 +1,4 @@
-﻿namespace MovieInfo
+﻿namespace MovieInfoCmd
 {
     using System.Linq;
     using System.Text;

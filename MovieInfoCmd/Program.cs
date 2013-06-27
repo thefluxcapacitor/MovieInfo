@@ -1,4 +1,4 @@
-﻿namespace MovieInfo
+﻿namespace MovieInfoCmd
 {
     using System;
     using System.Globalization;
@@ -179,8 +179,8 @@
         private static string GetPlot(HtmlDocument doc)
         {
             var description = doc.DocumentNode.Descendants("p")
-                .Single(el => el.GetAttributeValue("itemprop", string.Empty).Equals("description"));
-            return description.InnerText;
+                .SingleOrDefault(el => el.GetAttributeValue("itemprop", string.Empty).Equals("description"));
+            return description == null ? string.Empty : description.InnerText;
         }
 
         private static string GetYear(HtmlDocument doc)

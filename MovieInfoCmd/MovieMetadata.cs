@@ -1,4 +1,4 @@
-﻿namespace MovieInfo
+﻿namespace MovieInfoCmd
 {
     public class MovieMetadata
     {
