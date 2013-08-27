@@ -138,7 +138,12 @@
         private static string GetDuration(HtmlDocument doc)
         {
             var techSpecs = doc.DocumentNode.Descendants("h4")
-                .Single(el => el.InnerText.Equals("Runtime:", StringComparison.OrdinalIgnoreCase));
+                .SingleOrDefault(el => el.InnerText.Equals("Runtime:", StringComparison.OrdinalIgnoreCase));
+            if (techSpecs == null)
+            {
+                return "0";
+            }
+
             var result = techSpecs.ParentNode.Descendants("time")
                 .First(el => el.GetAttributeValue("itemprop", string.Empty).Equals("duration"))
                 .InnerText;
